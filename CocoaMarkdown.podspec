@@ -22,7 +22,7 @@ Efficient NSAttributedString creation for easy rendering on iOS and OS X. Most e
    ]
   s.private_header_files = [
     'CocoaMarkdown/*_Private.h',
-    'External/cmark/src/**/*.{h}',
+    'External/cmark/src/*.h'
   ]
   s.ios.framework = 'UIKit'
   s.osx.framework = 'Cocoa'
