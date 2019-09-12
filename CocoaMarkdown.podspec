@@ -15,16 +15,8 @@ Efficient NSAttributedString creation for easy rendering on iOS and OS X. Most e
   s.osx.deployment_target = '10.10'
 
   s.source        = { :git => 'https://github.com/fgulan/CocoaMarkdown.git' }
-  s.source_files  = [
-    'CocoaMarkdown',
-    'External/cmark/src/**/*.{c}',
-    'External/Ono/Ono/**/*.{h,m}'
-   ]
-  s.private_header_files = [
-    'CocoaMarkdown/*_Private.h',
-    'External/cmark/src/*.h'
-  ]
-  s.ios.framework = 'UIKit'
-  s.osx.framework = 'Cocoa'
+  s.ios.vendored_frameworks = 'CocoaMarkdown.framework'
+  s.ios.framework = ['UIKit', 'libxml2']
+  s.osx.framework = ['Cocoa', 'libxml2']
   s.requires_arc  = true
 end
