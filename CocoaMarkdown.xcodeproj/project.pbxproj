@@ -6,6 +6,21 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		0A867F1B232A67690035C439 /* CocoaMarkdown-Universal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 0A867F32232A67690035C439 /* Build configuration list for PBXAggregateTarget "CocoaMarkdown-Universal" */;
+			buildPhases = (
+				0A867F35232A67720035C439 /* ShellScript */,
+			);
+			dependencies = (
+				0A867F34232A676F0035C439 /* PBXTargetDependency */,
+			);
+			name = "CocoaMarkdown-Universal";
+			productName = "CocoaMarkdown-Universal";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		06D9F8771A70465700C00B67 /* CMHTMLUnderlineTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 06D9F8751A70465700C00B67 /* CMHTMLUnderlineTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		06D9F8781A70465700C00B67 /* CMHTMLUnderlineTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 06D9F8751A70465700C00B67 /* CMHTMLUnderlineTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -36,9 +51,9 @@
 		725115E31A6970A300337419 /* CMStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 725115DF1A6970A300337419 /* CMStack.m */; };
 		725115F51A6972AE00337419 /* CMHTMLElementTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 725115F41A6972AE00337419 /* CMHTMLElementTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		725115F61A6972AE00337419 /* CMHTMLElementTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 725115F41A6972AE00337419 /* CMHTMLElementTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		725115FC1A69735400337419 /* Ono.h in Headers */ = {isa = PBXBuildFile; fileRef = 725115F91A69735400337419 /* Ono.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		725115FC1A69735400337419 /* Ono.h in Headers */ = {isa = PBXBuildFile; fileRef = 725115F91A69735400337419 /* Ono.h */; };
 		725115FD1A69735400337419 /* Ono.h in Headers */ = {isa = PBXBuildFile; fileRef = 725115F91A69735400337419 /* Ono.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		725115FE1A69735400337419 /* ONOXMLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 725115FA1A69735400337419 /* ONOXMLDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		725115FE1A69735400337419 /* ONOXMLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 725115FA1A69735400337419 /* ONOXMLDocument.h */; };
 		725115FF1A69735400337419 /* ONOXMLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 725115FA1A69735400337419 /* ONOXMLDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		725116001A69735400337419 /* ONOXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 725115FB1A69735400337419 /* ONOXMLDocument.m */; };
 		725116011A69735400337419 /* ONOXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 725115FB1A69735400337419 /* ONOXMLDocument.m */; };
@@ -180,6 +195,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0A867F33232A676F0035C439 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 729F53D11A68641300CC7448 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 729F53D91A68641400CC7448;
+			remoteInfo = "CocoaMarkdown-iOS";
+		};
 		720DA57F1A68A00300DD05AF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 729F53D11A68641300CC7448 /* Project object */;
@@ -845,14 +867,14 @@
 				729F54341A6864F400CC7448 /* CMParser.h in Headers */,
 				72772BF71A6A29810059936C /* CMHTMLScriptTransformer_Private.h in Headers */,
 				72772BFB1A6A2B5C0059936C /* CMHTMLSubscriptTransformer.h in Headers */,
-				725115FC1A69735400337419 /* Ono.h in Headers */,
-				725115FE1A69735400337419 /* ONOXMLDocument.h in Headers */,
 				72772BEC1A6A22720059936C /* CMHTMLSuperscriptTransformer.h in Headers */,
 				729F542A1A6864F400CC7448 /* CMIterator.h in Headers */,
 				FD6168AA2284BDD500517B13 /* CMDocument+AttributedStringAdditions.h in Headers */,
 				729F54261A6864F400CC7448 /* CMDocument.h in Headers */,
 				728FA12F1AEED87900C7A368 /* CMDocument_Private.h in Headers */,
 				725115F51A6972AE00337419 /* CMHTMLElementTransformer.h in Headers */,
+				725115FE1A69735400337419 /* ONOXMLDocument.h in Headers */,
+				725115FC1A69735400337419 /* Ono.h in Headers */,
 				72772BF21A6A28A70059936C /* CMHTMLScriptTransformer.h in Headers */,
 				729F54221A6864F400CC7448 /* CMAttributedStringRenderer.h in Headers */,
 				72772BD61A699ACB0059936C /* CMHTMLUtilities.h in Headers */,
@@ -1023,6 +1045,10 @@
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Indragie Karunaratne";
 				TargetAttributes = {
+					0A867F1B232A67690035C439 = {
+						CreatedOnToolsVersion = 10.3;
+						ProvisioningStyle = Automatic;
+					};
 					729F53D91A68641400CC7448 = {
 						CreatedOnToolsVersion = 6.1.1;
 						LastSwiftMigration = 0830;
@@ -1075,6 +1101,7 @@
 				729F54041A68649200CC7448 /* CocoaMarkdownTests-Mac */,
 				72FE7EC81A68692400F23F46 /* Example-iOS */,
 				72FE7EF31A68695100F23F46 /* Example-Mac */,
+				0A867F1B232A67690035C439 /* CocoaMarkdown-Universal */,
 			);
 		};
 /* End PBXProject section */
@@ -1262,6 +1289,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A867F35232A67720035C439 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Merge Script\n# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n# 2\n# Setup some constants for use later on.\nFRAMEWORK_NAME=\"CocoaMarkdown\"\n# 3\n# If remnants from a previous build exist, delete them.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n# 4\n# Build the framework for device and for simulator (using\n# all needed architectures).\nxcodebuild -target \"${FRAMEWORK_NAME}-iOS\" -configuration Release -arch arm64e -arch arm64 -arch armv7 -arch armv7s only_active_arch=no defines_module=yes -sdk \"iphoneos\"\nxcodebuild -target \"${FRAMEWORK_NAME}-iOS\" -configuration Release -arch x86_64 -arch i386 only_active_arch=no defines_module=yes -sdk \"iphonesimulator\"\n# 5\n# Remove .framework file if exists on Desktop from previous run.\nif [ -d \"${SRCROOT}/${FRAMEWORK_NAME}.framework\" ]; then\nrm -rf \"${SRCROOT}/${FRAMEWORK_NAME}.framework\"\nfi\n# 6\n# Copy the device version of framework to Desktop.\ncp -r \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework\" \"${SRCROOT}/${FRAMEWORK_NAME}.framework\"\n# 7\n# Replace the framework executable within the framework with\n# a new version created by merging the device and simulator# frameworks' executables with lipo.\nlipo -create -output \"${SRCROOT}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\"\n\n# 8\n# Delete the most recent build.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		729F53D51A68641400CC7448 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1401,6 +1448,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0A867F34232A676F0035C439 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 729F53D91A68641400CC7448 /* CocoaMarkdown-iOS */;
+			targetProxy = 0A867F33232A676F0035C439 /* PBXContainerItemProxy */;
+		};
 		720DA5801A68A00300DD05AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 729F53FA1A68649200CC7448 /* CocoaMarkdown-Mac */;
@@ -1451,6 +1503,25 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0A867F1C232A67690035C439 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0A867F1D232A67690035C439 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
 		729F53EE1A68641400CC7448 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1874,6 +1945,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0A867F32232A67690035C439 /* Build configuration list for PBXAggregateTarget "CocoaMarkdown-Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A867F1C232A67690035C439 /* Debug */,
+				0A867F1D232A67690035C439 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		729F53D41A68641300CC7448 /* Build configuration list for PBXProject "CocoaMarkdown" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
