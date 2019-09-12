@@ -17,7 +17,7 @@ Efficient NSAttributedString creation for easy rendering on iOS and OS X. Most e
   s.source        = { :git => 'https://github.com/fgulan/CocoaMarkdown.git' }
   s.source_files  = [
     'CocoaMarkdown',
-    'External/cmark/src/**/*.{h,c}',
+    'External/cmark/src/**/*.{c}',
     'External/Ono/Ono/**/*.{h,m}'
    ]
   s.private_header_files = 'CocoaMarkdown/*_Private.h'
