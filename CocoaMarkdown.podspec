@@ -11,8 +11,7 @@ Efficient NSAttributedString creation for easy rendering on iOS and OS X. Most e
   s.license       = 'MIT'
 
   s.author        = "Indragie Karunaratne"
-  s.ios.deployment_target = '8.0'
-  s.osx.deployment_target = '10.10'
+  s.ios.deployment_target = '9.0'
 
   s.source        = { :git => 'https://github.com/fgulan/CocoaMarkdown.git', :tag => "#{s.version}" }
   s.ios.vendored_frameworks = 'CocoaMarkdown.framework'
@@ -20,5 +19,6 @@ Efficient NSAttributedString creation for easy rendering on iOS and OS X. Most e
   s.libraries     = 'xml2'
   s.xcconfig      = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
   s.requires_arc  = true
+  s.exclude_files = "Classes/Exclude"
 
 end
