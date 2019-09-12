@@ -123,10 +123,10 @@ static NSImage* _placeholderImage;
         if (_imageURL.isFileURL) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                NSData* imageData = [NSData dataWithContentsOfURL:_imageURL];
+                NSData* imageData = [NSData dataWithContentsOfURL:self->_imageURL];
                 if (imageData.length > 0) {
                     [self setImageWithData:imageData];
-                    _isImageLoaded = YES;
+                    self->_isImageLoaded = YES;
                 }
             });
         }
@@ -137,11 +137,11 @@ static NSImage* _placeholderImage;
                 if ((error == nil) && (data.length > 0)) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self setImageWithData:data];
-                        _isImageLoaded = YES;
+                        self->_isImageLoaded = YES;
                     });
                 }
                 
-                _downloadTask = nil;
+                self->_downloadTask = nil;
             }];
             
             [_downloadTask resume];
