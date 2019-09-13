@@ -1,4 +1,17 @@
 ## CocoaMarkdown
+
+## Fork info
+
+This fork enables the use of framework via CocoaPods as vendored framework.
+
+To install it use:
+
+```
+pod 'CocoaMarkdown', :git => 'https://github.com/fgulan/CocoaMarkdown.git', :submodules => true
+```
+
+To build it locally just run pod `CocoaMarkdown-Universal` target which will create framework (for all architectures).
+
 #### Markdown parsing and rendering for iOS and macOS
 
 CocoaMarkdown is a cross-platform framework for parsing and rendering Markdown, built on top of the [C reference implementation](https://github.com/jgm/CommonMark) of [CommonMark](http://commonmark.org).
