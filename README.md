@@ -1,5 +1,3 @@
-## CocoaMarkdown
-
 ## Fork info
 
 This fork enables the use of framework via CocoaPods as vendored framework.
@@ -11,6 +9,8 @@ pod 'CocoaMarkdown', :git => 'https://github.com/fgulan/CocoaMarkdown.git', :sub
 ```
 
 To build it locally just run pod `CocoaMarkdown-Universal` target which will create framework (for all architectures).
+
+## CocoaMarkdown
 
 #### Markdown parsing and rendering for iOS and macOS
 
