@@ -16,8 +16,6 @@ To build it locally just run pod `CocoaMarkdown-Universal` target which will cre
 
 CocoaMarkdown is a cross-platform framework for parsing and rendering Markdown, built on top of the [C reference implementation](https://github.com/jgm/CommonMark) of [CommonMark](http://commonmark.org).
 
-**This is currently beta-quality code.**
-
 ### Why?
 
 CocoaMarkdown aims to solve two primary problems better than existing libraries:
@@ -53,7 +51,7 @@ Next, drag the `.xcodeproj` file from within `CocoaMarkdown` into your project. 
 [`CMNode`](CocoaMarkdown/CMNode.h) and [`CMIterator`](CocoaMarkdown/CMIterator.h) wrap CommonMark's C types with an object-oriented interface for traversal of the Markdown AST.
 
 ```swift
-let document = CMDocument(contentsOfFile: path, options: nil)
+let document = CMDocument(contentsOfFile: path, options: [])
 document.rootNode.iterator().enumerateUsingBlock { (node, _, _) in
     print("String value: \(node.stringValue)")
 }
@@ -84,7 +82,7 @@ The [`CMParser`](CocoaMarkdown/CMParser.h) class isn't _really_ a parser (it jus
 Going from a Markdown document to rendering it on screen is as easy as:
 
 ```swift
-let document = CMDocument(contentsOfFile: path, options: nil)
+let document = CMDocument(contentsOfFile: path, options: [])
 let renderer = CMAttributedStringRenderer(document: document, attributes: CMTextAttributes())
 textView.attributedText = renderer.render()
 ```
@@ -92,19 +90,7 @@ textView.attributedText = renderer.render()
 Or, using the convenience method on `CMDocument`:
 
 ```swift
-textView.attributedText = CMDocument(contentsOfFile: path, options: nil).attributedStringWithAttributes(CMTextAttributes())
-```
-
-All attributes used to style the text are customizable using the [`CMTextAttributes`](CocoaMarkdown/CMTextAttributes.h) class:
-
-```swift
-let attributes = CMTextAttributes()
-attributes.linkAttributes = [
-    NSForegroundColorAttributeName: UIColor.redColor()
-]
-attributes.emphasisAttributes = [
-    NSBackgroundColorAttributeName: UIColor.yellowColor()
-]
+textView.attributedText = CMDocument(contentsOfFile: path, options: []).attributedStringWithAttributes(CMTextAttributes())
 ```
 
 HTML elements can be supported by implementing [`CMHTMLElementTransformer`](CocoaMarkdown/CMHTMLElementTransformer.h). The framework includes several transformers for commonly used tags:
@@ -116,19 +102,67 @@ HTML elements can be supported by implementing [`CMHTMLElementTransformer`](Coco
 Transformers can be registered with the renderer to use them:
 
 ```swift
-let document = CMDocument(contentsOfFile: path, options: nil)
+let document = CMDocument(contentsOfFile: path, options: [])
 let renderer = CMAttributedStringRenderer(document: document, attributes: CMTextAttributes())
 renderer.registerHTMLElementTransformer(CMHTMLStrikethroughTransformer())
 renderer.registerHTMLElementTransformer(CMHTMLSuperscriptTransformer())
 textView.attributedText = renderer.render()
 ```
 
+#### Customizing Attributed strings rendering
+
+All attributes used to style the text are customizable using the [`CMTextAttributes`](CocoaMarkdown/CMTextAttributes.h) class. 
+
+Every Markdown element type can be customized using the corresponding `CMStyleAttributes` property in `CMTextAttributes`, defining 3 different kinds of attributes:
+
+- String attributes, i.e. regular NSAttributedString attributes
+- Font attributes, for easy font setting 
+- Paragraph attributes, relevant only for block elements
+
+Attributes for any Markdown element kind can be directly set:
+
+```swift
+let textAttributes = CMTextAttributes()!
+textAttributes.linkAttributes.stringAttributes[NSAttributedString.Key.backgroundColor] = UIColor.yellow
+```
+
+A probably better alternative for style customization is to use grouped attributes setting methods available in `CMTextAttributes`:
+
+```swift
+let textAttributes = CMTextAttributes()!
+
+// Set the text color for all headers
+textAttributes.addStringAttributes([ .foregroundColor: UIColor(red: 0.0, green: 0.446, blue: 0.657, alpha: 1.0)], 
+                                   forElementWithKinds: .anyHeader)
+
+// Set a specific font + font-traits for all headers
+let boldItalicTrait: UIFontDescriptor.SymbolicTraits = [.traitBold, .traitItalic];
+textAttributes.addFontAttributes([ .family: "Avenir Next" ,
+                                   .traits: [ UIFontDescriptor.TraitKey.symbolic: boldItalicTrait.rawValue]], 
+                                 forElementWithKinds: .anyHeader)
+// Set specific font traits for header1 and header2
+textAttributes.setFontTraits([.weight: UIFont.Weight.heavy], 
+                             forElementWithKinds: [.header1, .header2])
+
+// Center block-quote paragraphs        
+textAttributes.addParagraphStyleAttributes([ .alignment: NSTextAlignment.center.rawValue], 
+                                           forElementWithKinds: .blockQuote)
+
+// Set a background color for code elements        
+textAttributes.addStringAttributes([ .backgroundColor: UIColor(white: 0.9, alpha: 0.5)], 
+                                   forElementWithKinds: [.inlineCode, .codeBlock])
+```
+
+Font and paragraph attributes are incremental, meaning that they allow to modify only specific aspects of the default rendering styles.
+
+Additionally on iOS, Markdown elements styled using the font attributes API get automatic Dynamic-Type compliance in the generated attributed string, just like default rendering styles.
+
 ### Rendering HTML
 
 [`CMHTMLRenderer`](CocoaMarkdown/CMHTMLRenderer.h) provides the ability to render HTML from Markdown:
 
 ```swift
-let document = CMDocument(contentsOfFile: path, options: nil)
+let document = CMDocument(contentsOfFile: path, options: [])
 let renderer = CMHTMLRenderer(document: document)
 let HTML = renderer.render()
 ```
